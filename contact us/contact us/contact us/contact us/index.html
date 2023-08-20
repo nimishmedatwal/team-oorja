@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us Page</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <section>
+    <div class="section-header">
+      <div class="container">
+        <h2>Contact Us</h2>
+        <p>Have any questions or need more information? We're here to help! Please feel free to reach out to us using
+          the contact form below:</p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="contact-form">
+          <form action="#" method="POST" id="contact-form">
+            <h2>Send Message</h2>
+            <div class="input-box">
+              <label for="name">Full Name</label>
+              <input type="text" required="true" name="name" id="name">
+            </div>
+            <div class="input-box">
+              <label for="email">Email</label>
+              <input type="email" required="true" name="email" id="email">
+            </div>
+            <div class="input-box">
+              <label for="message">Message</label>
+              <textarea required="true" name="message" id="message"></textarea>
+            </div>
+            <div class="input-box">
+              <input type="submit" value="Send" name="submit">
+            </div>
+            <div id="success-message" class="success-message"></div>
+            <div id="error-message" class="error-message"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>

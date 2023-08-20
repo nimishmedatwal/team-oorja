@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/cc6782c5f3.js" crossorigin="anonymous"></script>
+    
+
+   
+
+    <title>Document</title>
+</head>
+<body>
+    <div id="slider-page">
+        <div class="items">
+         <div class="item active">
+           <img src="./team-1.jpg">
+         </div>
+         <div class=" item next">
+           <img src="./team-2.JPG">
+         </div>
+         <div class="item">
+           <img src="./team-3.jpg">
+         </div>
+         <div class="item">
+           <img src="./team-4.jpg">
+         </div>
+         <div class="item">
+           <img src="./team-6.JPG">
+         </div>
+         <div class="item">
+           <img src="./team-7.JPG">
+         </div>
+         <div class="item">
+           <img src="./team-8.jpeg">
+         </div>
+         <div class="item">
+           <img src="./team-9.jpg">
+         </div>
+         <div class="item">
+           <img src="./team-10.jpg">
+         </div>
+         <div class="item">
+           <img src="./team-11.JPG">
+         </div>
+         <div class="item">
+           <img src="./team-12.jpeg">
+         </div>
+         <div class="item">
+           <img src="./team-13.JPG">
+         </div>
+         <div class="item">
+           <img src="./team-14.JPG">
+         </div>
+         <div class="item">
+           <img src="./">
+         </div>
+         <div class="item prev">
+           <img src="./team-5.JPG">
+         </div>
+         <div class="button-container">
+           <div class="button one"><i class="fas fa-angle-left"></i></div>
+           <div class="button two"><i class="fas fa-angle-right"></i></div>
+           </div>
+          </div>
+       
+       
+       
+       <script>
+
+        const slider = document.querySelector(".items");
+        const slides = document.querySelectorAll(".item");
+        const button = document.querySelectorAll(".button");
+      
+        let current = 0;
+        let prev = 14;
+        let next = 1;
+      
+        for (let i = 0; i < button.length; i++) {
+          button[i].addEventListener("click", () => i == 0 ? gotoPrev() : gotoNext());
+        }
+      
+        const gotoPrev = () => current > 0 ? gotoNum(current - 1) : gotoNum(slides.length - 1);
+      
+        const gotoNext = () => current < 14 ? gotoNum(current + 1) : gotoNum(0);
+      
+        const gotoNum = number => {
+          current = number;
+          prev = current - 1;
+          next = current + 1;
+      
+          for (let i = 0; i < slides.length; i++) {
+            slides[i].classList.remove("active");
+            slides[i].classList.remove("prev");
+            slides[i].classList.remove("next");
+          }
+      
+          if (next == slides.length) {
+            next = 0;
+          }
+      
+          if (prev == -1) {
+            prev = 4;
+          }
+      
+          slides[current].classList.add("active");
+          slides[prev].classList.add("prev");
+          slides[next].classList.add("next");
+        }
+        slider.style.backgroundImage = `url('${slides[current].src}')`;
+      
+      
+      </script>
+      
+      
+      <style>
+
+
+
+#slider-page{
+  height: 90vh;
+  width: 100%;
+  background: linear-gradient(to right top, #0b1320, #141d2b, #1c2836, #243342, #2d3e4e, #39515f, #48646f, #58787f, #7a9995, #a2b9ac, #cfd9c6,#fef9e6);
+}
+
+
+
+.items .button-container {
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  width: 30rem;
+  z-index: 998;
+}
+
+.button-container .button {
+  color: black;
+  font-size: 32px;
+  cursor: pointer;
+  position: relative;
+  opacity:1;
+  transition: all 300ms ease-in-out;
+  left: 13%;
+  z-index: 998;
+
+}
+
+.button-container .button:hover {
+  opacity: 1;
+}
+
+.button-container .button:before {
+  content: "";
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 1);
+  border-radius: 50%;
+  z-index: 998;
+}
+
+.button-container .button:nth-child(1) {
+  float: left;
+}
+
+.button-container .button:nth-child(2) {
+  float: right;
+}  
+
+
+.items {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  user-select: none;
+  width: 500px;
+  z-index: 998;
+}
+
+.items .item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 500px;
+ border-radius: 80px;
+  overflow: hidden;
+  transition: all 300ms ease-in-out;
+  z-index: 998;
+  opacity: 0;
+}
+
+.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.item.active {
+  opacity: 1;
+  z-index: 998;
+  box-shadow: 0px 0px 105px -35px rgba(0, 0, 0, 0.75);
+}
+
+.item.prev {
+  z-index: 998;
+  opacity: 0.2;
+  transform: translate(-140%, -60%);
+  scale: 0.8;
+}
+
+.item.next {
+  z-index: 998;
+  opacity: 0.2;
+  transform: translate(20%, -60%);
+  scale: 0.8;
+  
+
+  
+  
+}
+
+html body {
+  margin: 0;
+  padding: 0;
+  min-width: 100%;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  height: 100%;
+  max-height: 100%;
+  background-color: #F4F4F4;
+  font-family: 'Raleway', sans-serif;
+}
+
+      </style>
+</body>
+</html>
